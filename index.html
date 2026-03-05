@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bento Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .bento-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 1rem;
+        }
+        .bento-item {
+            background: #1c1c1e;
+            border-radius: 24px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .bento-item:hover { transform: scale(0.98); }
+        .bento-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .bento-item.wide { grid-column: span 2; }
+        .bento-item.tall { grid-row: span 2; }
+        
+        .gradient-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .gradient-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .gradient-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .gradient-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        
+        .bento-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .bento-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .bento-text p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .bento-item.large .bento-text h3 { font-size: 2.5rem; }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+        .c1 { width: 100px; height: 100px; top: -20px; right: -20px; }
+        .c2 { width: 60px; height: 60px; bottom: 20px; right: 20px; }
+        .c3 { width: 150px; height: 150px; bottom: -50px; left: -50px; }
+        
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 150px;
+            }
+            .bento-item.large {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bento-container">
+        <div class="bento-grid">
+            <div class="bento-item large gradient-1">
+                <div class="floating-elements">
+                    <div class="circle c1"></div>
+                    <div class="circle c3"></div>
+                </div>
+                <div class="bento-content">
+                    <div class="bento-icon">👋</div>
+                    <div class="bento-text">
+                        <h3>Hello, I'm Alex</h3>
+                        <p>Creative developer & designer crafting digital experiences that matter.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bento-item gradient-2">
+                <div class="bento-content">
+                    <div class="bento-icon">🎨</div>
+                    <div class="bento-text">
+                        <h3>Design</h3>
+                        <p>UI/UX</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bento-item gradient-3">
+                <div class="bento-content">
+                    <div class="bento-icon">⚡</div>
+                    <div class="bento-text">
+                        <h3>Code</h3>
+                        <p>React/Node</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bento-item wide gradient-4">
+                <div class="floating-elements">
+                    <div class="circle c2"></div>
+                </div>
+                <div class="bento-content">
+                    <div class="bento-icon">🚀</div>
+                    <div class="bento-text">
+                        <h3>Recent Project</h3>
+                        <p>Launched a SaaS platform serving 10k+ users with 99.9% uptime.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bento-item gradient-5">
+                <div class="bento-content" style="justify-content: center; align-items: center; text-align: center;">
+                    <div class="bento-text">
+                        <h3 style="font-size: 2rem;">5+</h3>
+                        <p>Years Exp</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bento-item" style="background: #2c2c2e;">
+                <div class="bento-content" style="justify-content: center; align-items: center;">
+                    <div class="bento-icon" style="width: 60px; height: 60px; font-size: 2rem;">📧</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
